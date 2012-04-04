@@ -15,6 +15,7 @@ $(function()
       {
          generateIds: true,
          idPrefix: "navItem_",
+			minExpandLevel: 2,
          selectMode: 1,
          persist: true,
          onActivate: function(node)
