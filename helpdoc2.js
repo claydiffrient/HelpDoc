@@ -3,11 +3,34 @@
 //Define Globals
 GLOBAL_XML = null;
 
+/* OLD BACK/FOWARD NAV
+
 //Used to handle forward/back navigation.
 window.onpopstate = function (stackState) {
    if (stackState.state !== null)
       loadSpecifiedDocument();
 };
+*/
+
+/***********************
+* Attempting to fix again the back/forward navigation..
+***********************/
+function change(state)
+{
+	if (state !== null)
+	{
+		loadSpecifiedDocument();
+	}
+}
+
+$(window).bind("popstate", function(e)
+{
+	change(e.originalEvent.state);
+});
+
+
+
+
 
 $(function()
 {
@@ -32,7 +55,9 @@ $(function()
 });
 
 
-//Recursive function to add items below the inital title level.
+/**************************************************************
+* Recursive function to add items below the inital title level.
+**************************************************************/
 function addNode(elementNode,parentNode)
 {
    //Check for children
@@ -169,15 +194,6 @@ function navLoader()
             $('> document',titleElement).each(function(index,element)
             {
                addNode(element, titleElement);
-               /*var parentKey = $(element).parent().attr("id");
-               $("#leftNavigation").dynatree("getTree").getNodeByKey(parentKey).addChild(
-                  {
-                     title: $(element).attr("title"),
-                     isFolder: false,
-                     href: $(element).attr("ref"),
-                     icon: false,
-                     key: $(element).attr("id")
-                  }); */
             });
          }
          );
