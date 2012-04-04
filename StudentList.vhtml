@@ -1,0 +1,23 @@
+<%Render Href="Resource/14853/Web/Help/inc/Help-01.vhtml"%>
+<%String Name="Component-StudentList" %>
+<%Render Href="Resource/14853/Web/Help/inc/Help-02.vhtml"%>
+	<div class="content">
+		<h1><%String Name="Component-StudentList" %></h1>
+		<p class="subtitle"><%String Name="LMS-HelpDocumentation" %></p>
+		<hr />
+		<p>The <%String Name="Component-StudentList" %> module displays all enrollments (students) the user observes. Relevant information associated with the enrollment is also displayed to provide quick information for the user. Any observed enrollments from previous semesters are not displayed in the <%String Name="Component-StudentList" %>.</p>
+		<p>NOTE: Each column in the <%String Name="Component-StudentList" %> is sortable. To sort by a specific field, simply select the column heading.</p>
+		<img src="Images/StudentList.jpg" alt="<%String Name="Component-StudentList" %> Image" title="<%String Name="Component-StudentList" %> Image" class="image-help">
+		<h2>Features</h2>
+		<h3>Student Name</h3>
+		<p>The name of the student the observed enrollment is associated with. To view the student's dashboard, click on the name.</p>
+		<h3>Course Name</h3>
+		<p>The name of the course the student is associated with. To view the course, click on the course name.</p>
+		<h3>Student Grade</h3>
+		<p>The current grade the student has in the specified course. To view all of the student's grades, click on the student grade.</p>
+		<h3>Pace</h3>
+		<p>The number displays how many assignments the student either did not submit that was due within the last two weeks or has received a score of zero in the last two weeks.</p>
+		<h3>Last Activity</h3>
+		<p>The date displayed shows the most recent time the student has contributed to any graded item in the specified course. To view all of the student's activity and access times, click on the last activity.</p>
+	</div>
+<%Render Href="Resource/14853/Web/Help/inc/Help-03.vhtml"%>

@@ -1,0 +1,20 @@
+<%Render Href="Resource/14853/Web/Help/inc/Help-01.vhtml"%>
+<%String Name="Component-CourseListTeacher" %> (<%String Name="Dashboard-Teacher" %>)
+<%Render Href="Resource/14853/Web/Help/inc/Help-02.vhtml"%>
+	<div class="content">
+		<h1><%String Name="Component-CourseListTeacher" %> (<%String Name="Dashboard-Teacher" %>)</h1>
+		<p class="subtitle"><%String Name="LMS-HelpDocumentation" %></p>
+		<hr />
+		<p>The <%String Name="Component-CourseListTeacher" %> module displays all courses in which the user has an active enrollment other than a student enrollment. However, courses in which the user is enrolled as a student are not displayed on this page—these courses may be viewed by selecting the option "Switch to Student Dashboard." If a course is not displayed in the Course List and the user has some other enrollment than “student” in the course, select the "Courses" menu button to see all courses.</p>
+		<img src="Images/CourseListTeacher.jpg" alt="<%String Name="Component-CourseListTeacher" %> Image" title="<%String Name="Component-CourseListTeacher" %> Image" class="image-help">
+		<h2>Features</h2>
+		<h3>Course Name</h3>
+		<p>Displays the name of the <%String Name="LMS-Name" %> course. To view the course, click on the course name.</p>
+		<h3>Course Plan</h3>
+		<p>Edits to a course occur within the Course Plan. To make edits to the course, click on <em>Course Plan</em>.</p>
+		<h3>Gradebook</h3>
+		<p>The gradebook for the specified course. To navigate directly to the gradebook, click on <em>Gradebook</em>.</p>
+		<h3>Unread Posts</h3>
+		<p>When displayed, the user has yet to read posts made in a discussion board, wiki, blog or journal. The number within the parentheses indicates how many new posts have been made in the specified course within the last two weeks. To view the unread posts, click on <em>Unread Posts</em>.</p>
+	</div>
+<%Render Href="Resource/14853/Web/Help/inc/Help-03.vhtml"%>

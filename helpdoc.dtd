@@ -1,0 +1,11 @@
+<!ELEMENT helpnavigation (title+)>
+<!ELEMENT title (document+)>
+<!ELEMENT document (document*)>
+
+
+<!ATTLIST document ref CDATA #REQUIRED>
+<!ATTLIST document title CDATA #REQUIRED>
+<!ATTLIST document id CDATA #REQUIRED>
+<!ATTLIST title title CDATA #REQUIRED>
+<!ATTLIST title id CDATA #REQUIRED>
+<!ATTLIST title ref CDATA #IMPLIED>

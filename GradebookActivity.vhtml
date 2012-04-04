@@ -1,0 +1,25 @@
+<%Render Href="Resource/14853/Web/Help/inc/Help-01.vhtml"%>
+<%String Name="Component-GradebookActivity" %>
+<%Render Href="Resource/14853/Web/Help/inc/Help-02.vhtml"%>
+	<div class="content">
+		<h1><%String Name="Component-GradebookActivity" %></h1>
+		<p class="subtitle"><%String Name="LMS-HelpDocumentation" %></p>
+		<hr />
+		<p>The <%String Name="Component-GradebookActivity" %> module displays all submitted and graded items for all courses the student is actively enrolled in. It only displays the items that were modified within the last two (2) weeks and does not show items which were automatically graded (i.e., multiple choice assessments). Unlike the gradebook, this tool displays a notification if the grader has provided feedback or an attachment.</p>
+		<img src="Images/GradebookActivity.jpg" alt="<%String Name="Component-GradebookActivity" %> Image" title="<%String Name="Component-GradebookActivity" %> Image" class="image-help">
+		<h2>Features</h2>
+		<h3>Item Name</h3>
+		<p>The name of the assignment or assessment. To view grade details of the item, click on the item name.</p>
+		<h3>Course Name</h3>
+		<p>The name of the course the assignment is associated with.</p>
+		<h3>Grade</h3>
+		<p>The grade received for the assignment. If the score is green, the student has received a score of 70% or higher. If the score is red, the student has received a score of less than 70%.</p>
+		<h3>Icons</h3>
+		<h4><img src="https://byui.brainhoney.com/Images/document.png" alt="Submitted, needs grading" title="Submitted, needs grading" style="padding-right:5px;">Submitted, needs grading</h4>
+		<p>The “Submitted, needs grading” icon indicates that the student has submitted or completed the assignment or assessment, but has not received a grade.</p>
+		<h4><img src="<%String Name="LMS-FileLocation" %>Style/Image/iconFeedback.png" alt="Feedback available" title="Feedback available" style="padding-right:5px;">Feedback</h4>
+		<p>The “Feedback” icon notifies the student that the grader has provided comments or attached a document to the item. To view the feedback, click on the item name.</p>
+		<h3>Date</h3>
+		<p>The date displayed shows the most recent time the item has been modified. For example, if an item has only been submitted, the date is the time of submission. If the item has been graded, the date is the time of the most recent edit to the grade.</p>
+	</div>
+<%Render Href="Resource/14853/Web/Help/inc/Help-03.vhtml"%>

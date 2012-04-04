@@ -1,0 +1,19 @@
+<%Render Href="Resource/14853/Web/Help/inc/Help-01.vhtml"%>
+<%String Name="Component-DueSoonList" %>
+<%Render Href="Resource/14853/Web/Help/inc/Help-02.vhtml"%>
+	<div class="content">
+		<h1><%String Name="Component-DueSoonList" %></h1>
+		<p class="subtitle"><%String Name="LMS-HelpDocumentation" %></p>
+		<hr />
+		<p>The <%String Name="Component-DueSoonList" %> module displays all assignments or assessments that are due within the next two (2) weeks for all courses the student is actively enrolled in. Past due and attempted items do not display in this list. If an item has not been assigned a due date in <%String Name="LMS-Name" %>, it will not be displayed on this list.</p>
+		<p>NOTE: Any item that has been attempted, but possibly not completed (i.e., discussion board, blog, journal), will be removed from the <%String Name="Component-DueSoonList" %>.</p>
+		<img src="Images/DueSoon.jpg" alt="<%String Name="Component-DueSoonList" %> Image" title="<%String Name="Component-DueSoonList" %> Image" class="image-help">
+		<h2>Features</h2>
+		<h3>Item Name</h3>
+		<p>The name of the assignment or assessment. To view and/or complete the item, click on the item name.</p>
+		<h3>Course Name</h3>
+		<p>The name of the course with which the item is associated.</p>
+		<h3>Date</h3>
+		<p>The date displayed shows the day and time by which the item should be submitted.</p>
+	</div>
+<%Render Href="Resource/14853/Web/Help/inc/Help-03.vhtml"%>

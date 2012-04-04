@@ -1,0 +1,341 @@
+/* BODY */
+body {
+	padding:0px 10px 10px 10px;
+	margin:0;
+	}
+
+/* HEADINGS */
+
+h1,h2,h3,h4,h5 {
+   font-family: Verdana, Helvetica, sans-serif;
+   margin:0;
+   }
+
+h1 {
+   font-size:18pt;
+   letter-spacing: 1pt;
+   color: #595959;
+   font-variant: small-caps;
+   font-weight:normal;
+   padding:10px 0px 10px 0px;
+   }
+
+h2 {
+   color:black;
+   font-size:16pt;
+   font-weight:bold;
+   padding:10px 0px 10px 0px;
+   }
+
+h3 {
+   font-size:14pt;
+   color:#1C74B6;
+   font-weight:bold;
+   padding:10px 0px 0px 0px;
+   }
+
+h4 {
+   font-size:12pt;
+   font-weight:bold;
+   color:#595959;
+   padding:10px 0px 0px 0px;
+   }
+
+h5 {
+   font-size:12pt;
+   font-weight:bold;
+   padding:10px 0px 0px 0px;
+   }
+
+/* DIV and P */
+
+div {
+   font-family: Verdana, Helvetica, sans-serif;
+   padding:0;
+   margin:0;
+   /*display:inline;*/
+   }
+
+p {
+   font-family: Verdana, Helvetica, sans-serif;
+   color:black;
+   font-size:12pt;
+   padding:0px 0px 10px 0px;
+   margin:0;
+   }
+
+/* HORIZONTAL RULE LINE */
+
+hr {
+   height:1px;
+   border-width:0; 
+   background-color:#595959; 
+   margin:10px 0px;
+   padding:0;
+   clear:both;
+   }
+
+/* HYPERLINKS */
+
+a {
+   color:#1C74B6;
+   }
+
+a:visited {
+   color:#595959;
+   }
+
+a:hover {
+   text-decoration:none;
+   }
+
+
+/* TABLE WITH BORDERS */
+
+table {
+   font-family: Verdana, Helvetica, sans-serif;
+   color:black;
+   border-width: 1px;
+   border-style: solid;
+   border-color: black;
+   border-collapse: collapse;
+   margin-bottom:10px;
+   }
+
+table tr {
+   color:black;
+   border-width: 1px;
+   padding: 5px 10px;
+   border-style: solid;
+   border-color: #1C74B6;
+   -moz-border-radius: 0px 0px 0px 0px;
+   }
+
+table td {
+   color:black;
+   border-width: 1px;
+   padding: 5px 10px;
+   border-style: solid;
+   border-color: #1C74B6;
+   -moz-border-radius: 0px 0px 0px 0px;
+   }
+
+table th {
+   background-color:#1C74B6;
+   color:white;
+   border-width: 1px;
+   padding: 5px 10px;
+   border-style: solid;
+   border-color: #1C74B6;
+   -moz-border-radius: 0px 0px 0px 0px;
+   }
+
+/* TABLE WITHOUT BORDERS */
+
+table.noborder {
+   font-family: Verdana, Helvetica, sans-serif;
+   color:black;
+   border-width: 1px;
+   border-style: none;
+   border-collapse: collapse;
+   }
+
+table.noborder tr {
+   color:black;
+   border-width: 1px;
+   border-style: none;
+   padding: 5px 15px;
+   -moz-border-radius: 0px 0px 0px 0px;
+   }
+
+table.noborder td {
+   color:black;
+   border-width: 1px;
+   border-style: none;
+   padding: 5px 15px;
+   -moz-border-radius: 0px 0px 0px 0px;
+   }
+
+table.noborder th {
+   background-color:#1C74B6;
+   color:white;
+   border-width: 1px;
+   border-style: none;
+   padding: 5px 15px;
+   -moz-border-radius: 0px 0px 0px 0px;
+   }
+
+/* LISTS */
+
+ul {
+   font-family: Verdana, Helvetica, sans-serif;
+   color:black;
+   list-style-type: disc;
+   list-style-position: inside;
+   margin-top:0;
+   }
+
+ul ul {
+   color:black;
+   list-style-type: circle;
+   list-style-position: inside;
+   }
+
+ol {
+   font-family: Verdana, Helvetica, sans-serif;
+   color:black;
+   list-style-type: decimal;
+   list-style-position: inside;
+   margin-top:0;
+   }
+
+ol ol {
+   color:black;
+   list-style-type: lower-alpha;
+   }
+
+/* SPECIAL STYLES (using classes) */
+
+.title {
+   color:black;
+   text-align:center;
+   padding:10px 0px 10px 0px
+   }
+
+.subtitle {
+   font-size:11pt;
+   color:#595959;
+   padding:0px 0px 8px 0px;
+}
+
+.image-help {
+	max-width:100%;
+}
+
+.icon-l, .icon-m, .icon-s {
+	clear:both;
+	float:left;
+	margin:0;
+}
+
+.icon-l {
+	width:90px;
+	height:90px;
+	padding:0 10px 15px 0;
+}
+
+.icon-m {
+	width:50px;
+	height:50px;
+	padding:15px 10px 15px 0;
+}
+
+.icon-s {
+	width:30px;
+	height:30px;
+}
+
+.left {
+	text-align:left; 
+	padding:0px 10px 0px 0px;
+	clear:both;
+}
+
+.right {
+	text-align:right; 
+	padding:0px 0px 0 10px;
+	clear:both;
+}
+
+.center {
+	text-align:right; 
+	padding:10px;
+	clear:both;
+}
+
+.workcited {
+	font-family:"Courier New", Courier, monospace;
+	font-size:10pt;
+}
+
+.clearboth {
+	clear:both
+}
+
+h1 + .subtitle, h2 + .subtitle {
+	margin-top:-10px;
+	padding-bottom:10px;
+	}
+
+h1 + hr, h2 + hr {
+	margin-top:0px;
+}
+
+.subtitle + hr {
+	margin-top:0px;
+}
+
+.newTag {
+	color:red;
+}
+
+/************ Styles for HelpDoc system *****************/
+#header
+{
+   height: 60px;
+   width: 100%;
+   border-bottom: solid 2px;
+}
+
+#leftNavigation
+{
+   overflow: hidden;
+   width: 200px;
+   border-right: solid 2px;
+   position:absolute;
+   left:10px;
+   bottom:0;
+   top:62px;
+}
+
+#mainContent
+{
+   overflow-y:auto;
+   position:absolute;
+   right:0;
+   left:230px;
+   top: 62px;
+   bottom: 0;
+}
+
+img#loading
+{
+   margin-top: 40%;
+   margin-left: 48%;
+   margin-right:48%;
+}
+
+.titleHeading
+{
+   background-color: blue;
+}
+
+.level0
+{
+   margin-left:0;
+}
+
+.level1
+{
+   margin-left: 15px;
+}
+
+.level2
+{
+   margin-left: 30px;
+}
+
+.level3
+{
+   margin-left: 45px;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>I-Learn Help Documentation</title>
+   <link href="/Resource/14853/Web/Help/dynatree/src/skin-vista/ui.dynatree.css" rel="stylesheet" type="text/css" />
+   <link href="//byui.brainhoney.com/Resource/7291918/css/start/jquery-ui-1.8.17.custom.css" rel="stylesheet" type="text/css" />
+   <link rel="stylesheet" href="style.css" type="text/css" />
+   <script type="text/javascript" src="/Resource/14853/Web/JS/jquery-1.6.1.min.js"></script>
+   <script type="text/javascript" src="http://byui.brainhoney.com/Resource/7291918/jquery-ui-1.8.17.custom.min.js"></script>
+   <script type="text/javascript" src="/Resource/14853/Web/Help/dynatree/src/jquery.dynatree.js"></script>
+   <script type="text/javascript" src="x2j.js"></script>
+   <script type="text/javascript" src="jquery.cookie.js"></script>
+   <script type="text/javascript" src="helpdoc2.js"></script>
+</head>
+<body onload="navLoader()" style="height: 100%!important">
+      <div id="header"><h1><a href="helpdoc2.vhtml">I-Learn Help</a></h1></div>
+      <div id="leftNavigation"></div>
+      <div id="mainContent">
+      </div>
+</body>
+</html>

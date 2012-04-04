@@ -1,0 +1,32 @@
+<%Render Href="Resource/14853/Web/Help/inc/Help-01.vhtml"%>
+<%String Name="Component-Transcript" %>
+<%Render Href="Resource/14853/Web/Help/inc/Help-02.vhtml"%>
+	<div class="content">
+		<h1><%String Name="Component-Transcript" %></h1>
+		<p class="subtitle"><%String Name="LMS-HelpDocumentation" %></p>
+		<hr />
+		<p>The <%String Name="Component-Transcript" %> module contains course grades for all of the courses that the user has taken through <%String Name="LMS-Name" %>, including those in progress and completed.</p>
+		<p>NOTE: Each column in the <%String Name="Component-Transcript" %> is sortable. To sort by a specific field, simply select the column heading.</p>
+		<img src="Images/Transcript.jpg" alt="<%String Name="Component-Transcript" %> Image" title="<%String Name="Component-Transcript" %> Image" class="image-help">
+		<h2>Features</h2>
+		<h3>Grade</h3>
+		<p>The current or final grade the student has in the specified course. To view all of the student's gradebook for the specified course, click on the grade.</p>
+		<p>NOTE: The grade displayed for expired courses may not be the actual grade reported on your official university transcript.</p>
+		<h3>Course Name</h3>
+		<p>Displays the name of the <%String Name="LMS-Name" %> course. To view the course, click on the course name.</p>
+		<h3>Term</h3>
+		<p>The semester the course was taken. If blank, the term was not set for the <%String Name="LMS-Name" %> course.</p>
+		<h3>Status</h3>
+		<p>The status field will display one of three options: Not started, Active, Expired.</p>
+		<h4>Not Started</h4>
+		<p>The course has not started. The user cannot access nor participate in the course.</p>
+		<h4>Active</h4>
+		<p>The course is in progress. The user can access and participate in the course.</p>
+		<h4>Expired</h4>
+		<p>The course has been completed. The user can access but not participate in the course.</p>
+		<h3>Start Date</h3>
+		<p>The first day the user will be able to access and participate in the course.</p>
+		<h3>End Date</h3>
+		<p>The last day the user will be able to participate in the course.</p>
+	</div>
+<%Render Href="Resource/14853/Web/Help/inc/Help-03.vhtml"%>

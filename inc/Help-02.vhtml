@@ -1,0 +1,8 @@
+ - <%String Name="LMS-HelpDocumentation" %></title>
+	<meta http-equiv="X-UA-Compatible" content="IE=IE8"/>
+	<!-- DISABLE ZOOM (FOR MOBILE DEVICES -->
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="<%String Name="LMS-FileLocation" %>JS/googleAnalytics.js"></script>
+</head>
+<body>

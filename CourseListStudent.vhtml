@@ -1,0 +1,20 @@
+<%Render Href="Resource/14853/Web/Help/inc/Help-01.vhtml"%>
+<%String Name="Component-CourseListStudent" %>
+<%Render Href="Resource/14853/Web/Help/inc/Help-02.vhtml"%>
+	<div class="content">
+		<h1><%String Name="Component-CourseListStudent" %></h1>
+		<p class="subtitle">Help Documentation</p>
+		<hr />
+		<p>The <%String Name="Component-CourseListStudent" %> module displays all courses in which the user has an active enrollment.</p>
+		<img src="Images/CourseListStudent.jpg" alt="<%String Name="Component-CourseListStudent" %> Image" title="<%String Name="Component-CourseListStudent" %> Image" class="image-help">
+		<h2>Features</h2>
+		<h3>Course Name</h3>
+		<p>Displays the name of the <%String Name="LMS-Name" %> course. To view the course, click on the course name.</p>
+		<h3>Grades</h3>
+		<p>Displays the grades for the specified course. The grade displayed within the parentheses is the current grade for the course. If the grade is green, the student has a grade of 70% or higher. If the grade is red, the student has a grade less than 70%. To view a complete list of the grades for the course, click on <em>Grades</em>.</p>
+		<h3>Unread Posts</h3>
+		<p>When displayed, the user has yet to read posts made in a discussion board, wiki, blog or journal. The number within the parentheses indicates how many new posts have been made in the specified course within the last two weeks. To view the unread posts, click on <em>Unread Posts</em>.</p>
+		<h3>Future Course</h3>
+		<p>When the user is enrolled in a course that has not yet begun, a message will be displayed in place of <em>Grades</em> and <em>Unread Posts</em>. The message will read, "You will be able to access this course on [date]." The [date] would be replaced with the month and day when the user can first access the course.
+	</div>
+<%Render Href="Resource/14853/Web/Help/inc/Help-03.vhtml"%>
