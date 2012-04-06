@@ -1,9 +1,19 @@
-// JavaScript Document
+/****************************************************************************
+* Helpdoc is used to run the I-Learn Help Documentation System.
+* Depends on:
+*    jQuery
+*    jQuery UI
+*    Dynatree
+*    History.js
+****************************************************************************/
 
-//Define Globals
+//Define needed global variable.
 GLOBAL_XML = null;
 
-
+/****************************************************************************
+* Function used to handle the History.js forward/back notifications.
+* Everything is default History.js information unless noted.
+****************************************************************************/
 (function(window,undefined){
 
     // Prepare
@@ -18,28 +28,29 @@ GLOBAL_XML = null;
     History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
         var State = History.getState(); // Note: We are using History.getState() instead of event.state
         History.log(State.data, State.title, State.url);
+		  // Added so that the file is loaded properly when the back button is pressed.
 		  loadSpecifiedDocument(GLOBAL_XML);
     });
-
-
 })(window);
 
 
-
+/*****************************************************************************
+* Function used to define the Dynatree object and apply settings to it.
+*****************************************************************************/
 $(function()
 {
    $("#leftNavigation").dynatree(
       {
-         generateIds: true,
-         idPrefix: "navItem_",
-			minExpandLevel: 2,
-         selectMode: 1,
-         persist: true,
-         onActivate: function(node)
+         generateIds: true,     //Makes each element of the tree have an html id attribute.
+         idPrefix: "navItem_",  //Gives a prefix to each of the element's id.
+			minExpandLevel: 2,     //Forces the top level items to be expanded and non-collapsable.
+         selectMode: 1,         //Only allows a single item to be selected.
+         persist: true,         //Persist is actually not completely functioning.  REMOVE???
+         onActivate: function(node)  //Perform this function when a node is activated
          {
-            if (node.data.href !== null)
+            if (node.data.href !== null)  //If the node has an href tag load it.
                ajaxLoader(node.data.href);
-            else
+            else                          //If not load it's first child.
             {
                node.getChildren()[0].focus();
                node.getChildren()[0].activate();
@@ -50,16 +61,19 @@ $(function()
 });
 
 
-/**************************************************************
-* Recursive function to add items below the inital title level.
-**************************************************************/
+/**********************************************************************
+* Recursive function that will add nodes that are nested within the XML
+* document.  It will load any nested document tags.
+***********************************************************************/
 function addNode(elementNode,parentNode)
 {
-   //Check for children
+   //Check for children in the node.
    if ($(elementNode).children().length > 0)
    {
-      var parentKey = $(parentNode).attr("id");
-      $("#leftNavigation").dynatree("getTree").getNodeByKey(parentKey).addChild(
+      //Store the parent's id key.
+		var parentKey = $(parentNode).attr("id");
+      //Add this particular document to the tree.
+		$("#leftNavigation").dynatree("getTree").getNodeByKey(parentKey).addChild(
       {
          title: $(elementNode).attr("title"),
          isFolder: false,
@@ -67,15 +81,17 @@ function addNode(elementNode,parentNode)
          icon: false,
          key: $(elementNode).attr("id")
       });
+		//Recurse through each child document.
       $('> document', elementNode).each(function(index,element){
          addNode(element, elementNode);
       });
       
    }
-   else
+   else  //If there aren't children...
    {
       var anotherParentKey = $(parentNode).attr("id");
-      $("#leftNavigation").dynatree("getTree").getNodeByKey(anotherParentKey).addChild(
+      //Add the document to the tree.
+		$("#leftNavigation").dynatree("getTree").getNodeByKey(anotherParentKey).addChild(
       {
          title: $(elementNode).attr("title"),
          isFolder: false,
@@ -87,63 +103,90 @@ function addNode(elementNode,parentNode)
 }
 
 /******************************************************************************
-*Loads the specific document that is specified by the query string.
+* Loads the specific document that is specified by the query string.
+* This function essentially allows us to have a url direct directly to a
+* document rather than just the home screen.
 ******************************************************************************/
 function loadSpecifiedDocument(xmldoc)
 {
-   var specificDocument = false;
+   //Start a variable that will contain the specific document.  False by default.
+	var specificDocument = false;
    var cx = 0;
+	//Split out all the "&" characters into an array.
    mySearch = location.search.substr(1).split("&");
+	//Loop through the array.
    for (cx = 0; cx < mySearch.length; cx++)
    {
-      if (mySearch[cx].length > 0)
+      //Check the length of the array entry.
+		if (mySearch[cx].length > 0)
       {
-         var mySplitSearch = mySearch[cx].split("=");
+         //Split the entry into an array based on "="
+			var mySplitSearch = mySearch[cx].split("=");
+			//Check if the entry is a "page" entry.
          if (mySplitSearch[0] == "page") 
          {
+				//Set the specific document variable to the value of the "page"
             specificDocument = mySplitSearch[1];
          }
       }
    }
 	if (!specificDocument)
 	{
+		//Set the specific document to Overview if nothing was present.
 		specificDocument = "Overview";
 	}
    if (specificDocument)
    {
-      var giveFocusKey = false;
+      //Create a variable used to set the key of the node which needs to be focused.
+		var giveFocusKey = false;
+		//Call ajaxLoader to load the actual document into the content frame.
       ajaxLoader(specificDocument + ".vhtml");
+		//Search through the xmldoc finding the elements as needed.
       $("document", xmldoc).each(function(index, element)
       {
-         if ($(element['ref']).length == 0)
+         //Check if the item doesn't have a ref tag then...
+			if ($(element['ref']).length == 0)
          {
-            if ($(element).children().length > 0)
+            //Check if it has children then...
+				if ($(element).children().length > 0)
             {
-               $("document", element).each(function(index, element)
+               //For each of it's children do this...
+					$("document", element).each(function(index, element)
                {
-                  var reference = $(element).attr("ref").split('\\').pop().split('/').pop().split('.');
-                  if (reference[0] == specificDocument)
+                  //Set the reference to the filename portion of the ref
+						var reference = $(element).attr("ref").split('\\').pop().split('/').pop().split('.');
+                  //Check that the reference matches the specific document.
+						if (reference[0] == specificDocument)
                   {
-                     giveFocusKey = $(element).attr("id");
+                     //Set the focus key to the id attribute of the element.
+							giveFocusKey = $(element).attr("id");
                   }
+						//Check that focus key was set.
                   if (giveFocusKey)
                   {
-                     $("#leftNavigation").dynatree("getTree").getNodeByKey(giveFocusKey).activate();
+                     //Activate and set focus to the given node.
+							$("#leftNavigation").dynatree("getTree").getNodeByKey(giveFocusKey).activate();
                      $("#leftNavigation").dynatree("getTree").getNodeByKey(giveFocusKey).focus();
                   }
                });
             }
          }
+			//If the item did hava a ref tag then...
          else
          {
-            var reference = $(element).attr("ref").split('\\').pop().split('/').pop().split('.');
-            if (reference[0] == specificDocument)
+            //Set the reference to the filename portion of the ref
+				var reference = $(element).attr("ref").split('\\').pop().split('/').pop().split('.');
+             //Check that the reference matches the specific document.
+				if (reference[0] == specificDocument)
             {
-               giveFocusKey = $(element).attr("id");
+               //Set the focus key to the id attribute of the element.
+					giveFocusKey = $(element).attr("id");
             }
-            if (giveFocusKey)
+            //Check that focus key was set.
+			   if (giveFocusKey)
             {
-               $("#leftNavigation").dynatree("getTree").getNodeByKey(giveFocusKey).activate();
+               //Activate and set focus to the given node.
+					$("#leftNavigation").dynatree("getTree").getNodeByKey(giveFocusKey).activate();
                $("#leftNavigation").dynatree("getTree").getNodeByKey(giveFocusKey).focus();
             }
          }
@@ -158,10 +201,14 @@ function loadSpecifiedDocument(xmldoc)
 ******************************************************************************/
 function ajaxLoader(urlToLoad)
 {
-   document.getElementById("mainContent").innerHTML = "<img id='loading' src='/Resource/14853/Web/Style/Image/loading.gif' />";
+   //Display a loading image while we load everything.
+	document.getElementById("mainContent").innerHTML = "<img id='loading' src='/Resource/14853/Web/Style/Image/loading.gif' />";
    var ajax;
+	//Split the url down to an array of the filename and the extension.
    var fileNameArray = urlToLoad.split('\\').pop().split('/').pop().split('.');
+	//Variable with the filename and the page variable ready to go concatenated witht the filename.
    var fileName = "helpdoc2.vhtml?page=" + fileNameArray[0];
+	//Create a state object to be used with the pushState function.
 	var stateObj = { page: fileNameArray[0] };
    if (window.XMLHttpRequest) //Check if it's modern
 	{
@@ -175,35 +222,46 @@ function ajaxLoader(urlToLoad)
    {
       if ((ajax.readyState == 4) && (ajax.status == 200))
       {
-         document.getElementById("mainContent").innerHTML = ajax.responseText;
-         History.pushState(stateObj, "", fileName);
+         //Replace the loading image with the requested page.
+			document.getElementById("mainContent").innerHTML = ajax.responseText;
+			//Push the state out to the browser.
+			History.pushState(stateObj, "", fileName);
       }
    };
+	//Complete the ajax operations
 	ajax.open("GET", urlToLoad, true);
 	ajax.send();
 }
 
 /******************************************************************************
 * navLoader is a function that will open the navigation into the navigation pane.
+* It loads from an external XML page.
 ******************************************************************************/
 function navLoader()
 {
-   var urlToLoad = "helpdoc.xml";
-   
+   //The name of the document to load.
+	var urlToLoad = "helpdoc.xml";
+	//jQuery AJAX call which is done synchronously.
    var ajaxCall = $.ajax({
       async: false,
       url: urlToLoad,
       success: function(data, textStatus, jqXHR)
       {
          var xmlResponse = data;
-         GLOBAL_XML = xmlResponse;
+         //Store the xml file into the GLOBAL_XML variable.
+			GLOBAL_XML = xmlResponse;
+			//For each title item do this...
          $('helpnavigation title', xmlResponse).each(function(index, titleElement)
          {     
-            var hrefVar;
+            //Create link variable to use if needed.
+				var hrefVar;
+				//Check if the item has a "ref" attribute.
             if ($(titleElement).attr("ref") !== undefined) 
             {
-               hrefVar = $(titleElement).attr("ref");
+               //Store it into hrefVar if it does have an attribute.
+					hrefVar = $(titleElement).attr("ref");
             }
+				//Add the title elements to the dynatree "root" node.
             $("#leftNavigation").dynatree("getRoot").addChild(
                {
                   title: $(titleElement).attr("name"),
@@ -211,15 +269,19 @@ function navLoader()
                   key: $(titleElement).attr("id"),
                   href: hrefVar,
                   icon: false
-               });      
+               });   
+				//For each of the documents below the title do this...   
             $('> document',titleElement).each(function(index,element)
             {
-               addNode(element, titleElement);
+               //Run the recursive addNode function (which will add all the nested documents).
+					addNode(element, titleElement);
             });
          }
          );
       }
    });
+	//When the ajax call finishes run the loadSpecified Document function to see if a file should appear.
+	//It will show Overview.vhtml by default.  See loadSpecifiedDocument for more information.
    $.when(ajaxCall).then(loadSpecifiedDocument(GLOBAL_XML));
 }
 
