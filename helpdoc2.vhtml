@@ -12,7 +12,6 @@
    <script type="text/javascript" src="jquery.cookie.js"></script>
 	<script type="text/javascript" src="history.js"></script>
 	<script type="text/javascript" src="history.adapter.jquery.js"></script>
-	<script defer src="http://gist.github.com/raw/854622/ajaxify-html5.js"></script>  
    <script type="text/javascript" src="helpdoc2.js"></script>
 </head>
 <body onload="navLoader()" style="height: 100%!important">
