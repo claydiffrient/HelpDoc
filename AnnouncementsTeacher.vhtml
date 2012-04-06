@@ -1,0 +1,18 @@
+<%Render Href="Resource/14853/Web/Help/inc/Help-01.vhtml"%>
+<%String Name="Component-AnnouncementList" %>
+<%Render Href="Resource/14853/Web/Help/inc/Help-02.vhtml"%>
+	<div class="content">
+		<h1><%String Name="Component-AnnouncementList" %></h1>
+		<p class="subtitle"><%String Name="LMS-HelpDocumentation" %></p>
+		<hr />
+		<p>The <%String Name="Component-AnnouncementList" %> module displays all currently available announcements to the user.</p>
+		<img src="Images/Announcements.jpg" alt="<%String Name="Component-AnnouncementList" %> Image" title="<%String Name="Component-AnnouncementList" %> Image" class="image-help">
+		<h2>Features</h2>
+		<h3>Subject</h3>
+		<p>The title of the specified announcement. To view the description of the announcement, click on the subject.</p>
+		<h3>Course Name</h3>
+		<p>The name of the course with which the announcement is associated.</p>
+		<h3>Date</h3>
+		<p>The date displayed shows the time the announcement was posted or most recently modified.</p>
+	</div>
+<%Render Href="Resource/14853/Web/Help/inc/Help-03.vhtml"%>

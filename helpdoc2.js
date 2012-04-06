@@ -3,42 +3,26 @@
 //Define Globals
 GLOBAL_XML = null;
 
-// OLD BACK/FOWARD NAV
 
-/*//Used to handle forward/back navigation.
-window.onpopstate = function (stackState) {
-   if (stackState.state !== null)
-      loadSpecifiedDocument();
-};
-*/
+(function(window,undefined){
 
-/***********************
-* Attempting to fix again the back/forward navigation..
-***********************
+    // Prepare
+    var History = window.History; // Note: We are using a capital H instead of a lower h
+    if ( !History.enabled ) {
+         // History.js is disabled for this browser.
+         // This is because we can optionally choose to support HTML4 browsers or not.
+        return false;
+    }
 
-function change(state)
-{
-	if (state !== null)
-	{
-		loadSpecifiedDocument();
-	}
-}
+    // Bind to StateChange Event
+    History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+        var State = History.getState(); // Note: We are using History.getState() instead of event.state
+        History.log(State.data, State.title, State.url);
+		  loadSpecifiedDocument(GLOBAL_XML);
+    });
 
-$(window).bind("popstate", function(e)
-{
-	change(e.originalEvent.state);
-});
 
-(function(original)
-{
-	history.pushState = function (state)
-	{
-		change(state);
-		return original.apply(this, arguments);
-	};
-})(history.pushState);
-**/
-
+})(window);
 
 
 
@@ -121,20 +105,47 @@ function loadSpecifiedDocument(xmldoc)
          }
       }
    }
+	if (!specificDocument)
+	{
+		specificDocument = "Overview";
+	}
    if (specificDocument)
    {
       var giveFocusKey = false;
       ajaxLoader(specificDocument + ".vhtml");
       $("document", xmldoc).each(function(index, element)
       {
-         var reference = $(element).attr("ref").split('\\').pop().split('/').pop().split('.');
-         if (reference[0] == specificDocument)
+         if ($(element['ref']).length == 0)
          {
-            giveFocusKey = $(element).attr("id");
+            if ($(element).children().length > 0)
+            {
+               $("document", element).each(function(index, element)
+               {
+                  var reference = $(element).attr("ref").split('\\').pop().split('/').pop().split('.');
+                  if (reference[0] == specificDocument)
+                  {
+                     giveFocusKey = $(element).attr("id");
+                  }
+                  if (giveFocusKey)
+                  {
+                     $("#leftNavigation").dynatree("getTree").getNodeByKey(giveFocusKey).activate();
+                     $("#leftNavigation").dynatree("getTree").getNodeByKey(giveFocusKey).focus();
+                  }
+               });
+            }
          }
-         if (giveFocusKey)
+         else
          {
-            $("#leftNavigation").dynatree("getTree").getNodeByKey(giveFocusKey).activate();
+            var reference = $(element).attr("ref").split('\\').pop().split('/').pop().split('.');
+            if (reference[0] == specificDocument)
+            {
+               giveFocusKey = $(element).attr("id");
+            }
+            if (giveFocusKey)
+            {
+               $("#leftNavigation").dynatree("getTree").getNodeByKey(giveFocusKey).activate();
+               $("#leftNavigation").dynatree("getTree").getNodeByKey(giveFocusKey).focus();
+            }
          }
       });
    }
@@ -165,7 +176,7 @@ function ajaxLoader(urlToLoad)
       if ((ajax.readyState == 4) && (ajax.status == 200))
       {
          document.getElementById("mainContent").innerHTML = ajax.responseText;
-         //window.history.pushState(stateObj, "", fileName);
+         History.pushState(stateObj, "", fileName);
       }
    };
 	ajax.open("GET", urlToLoad, true);
@@ -177,7 +188,6 @@ function ajaxLoader(urlToLoad)
 ******************************************************************************/
 function navLoader()
 {
-   //loadSpecifiedDocument();
    var urlToLoad = "helpdoc.xml";
    
    var ajaxCall = $.ajax({
