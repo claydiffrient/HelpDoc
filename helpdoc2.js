@@ -5,19 +5,17 @@ GLOBAL_XML = null;
 
 // OLD BACK/FOWARD NAV
 
-//Used to handle forward/back navigation.
+/*//Used to handle forward/back navigation.
 window.onpopstate = function (stackState) {
    if (stackState.state !== null)
-   {
-      console.log(stackState.state);
-      ajaxLoader(stackState.state.page + ".vhtml");
-	}
+      loadSpecifiedDocument();
 };
+*/
 
 /***********************
 * Attempting to fix again the back/forward navigation..
-***********************/
-/*
+***********************
+
 function change(state)
 {
 	if (state !== null)
@@ -39,7 +37,7 @@ $(window).bind("popstate", function(e)
 		return original.apply(this, arguments);
 	};
 })(history.pushState);
-*/
+**/
 
 
 
@@ -167,7 +165,7 @@ function ajaxLoader(urlToLoad)
       if ((ajax.readyState == 4) && (ajax.status == 200))
       {
          document.getElementById("mainContent").innerHTML = ajax.responseText;
-         window.history.pushState(stateObj, "", fileName);
+         //window.history.pushState(stateObj, "", fileName);
       }
    };
 	ajax.open("GET", urlToLoad, true);
