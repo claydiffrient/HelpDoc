@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE helpnavigation SYSTEM "helpdoc.dtd">
+<helpnavigation>
+   <title id="0" name="Student">
+	  <document id="0-2" title="Student Dashboard">
+         <document id="0-2-0" ref="http://byui.brainhoney.com/resource/14853/Web/help/GradebookActivity.vhtml" title="Gradebook Activity" />
+         <document id="0-2-1" ref="http://byui.brainhoney.com/resource/14853/Web/help/CourseListStudent.vhtml" title="Course List" />
+         <document id="0-2-2" ref="http://byui.brainhoney.com/resource/14853/Web/help/DueSoon.vhtml" title="Due Soon" />
+    	 <document id="0-2-3" ref="http://byui.brainhoney.com/resource/14853/Web/help/Announcements.vhtml" title="Announcements" />
+	  </document>
+	  <document id="1-4" ref="http://byui.brainhoney.com/resource/14853/Web/help/Transcript.vhtml" title="Transcript" />
+   </title>
+   <title id="1" name="Teacher">
+      <document id="1-0" title="Teacher Dashboard">
+	     <document id="1-0-0" ref="http://byui.brainhoney.com/resource/14853/Web/help/Announcements.vhtml#teacher" title="Announcements" />
+	     <document id="1-0-1" ref="http://byui.brainhoney.com/resource/14853/Web/help/CourseListTeacher.vhtml" title="Course List" />
+	  </document>
+	  <document id="1-1" title="Maybe coming...">
+         <document id="2-2" ref="http://byui.brainhoney.com/resource/14853/Web/help/GradebookQuickview.vhtml" title="Gradebook Quickview" />
+      </document>
+   </title>
+   <title id="2" name="Observer">
+   </title>
+</helpnavigation>
